@@ -7,5 +7,5 @@ interface AuthListener {
     fun onSuccess()
 
     fun onFailure(message : String)
-    
+
 }
