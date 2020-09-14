@@ -28,7 +28,7 @@ class SignUpActivity : AppCompatActivity(), AuthListener, KodeinAware {
         setContentView(R.layout.activity_sign_up)
 
         val binding : ActivitySignUpBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
-        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(AuthViewModel::class.java)
         binding.viewmodel = viewModel
 
         viewModel.authListener = this
@@ -52,5 +52,6 @@ class SignUpActivity : AppCompatActivity(), AuthListener, KodeinAware {
         progressbar.visibility = View.GONE
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
 
 }
