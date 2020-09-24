@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.firebaseauthmvvm.data.repository.UserRepository
+import com.example.firebaseauthmvvm.util.StatusListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -13,7 +14,7 @@ class AuthViewModel (private val repository : UserRepository) : ViewModel() {
     var email : String? = null
     var password : String? = null
 
-    var authListener : AuthListener? = null
+    var authListener : StatusListener? = null
 
     private val disposables = CompositeDisposable()
 

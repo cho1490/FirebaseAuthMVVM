@@ -2,9 +2,11 @@ package com.example.firebaseauthmvvm
 
 import android.app.Application
 import com.example.firebaseauthmvvm.data.firebase.FirebaseSource
+import com.example.firebaseauthmvvm.data.repository.PostRepository
 import com.example.firebaseauthmvvm.data.repository.UserRepository
 import com.example.firebaseauthmvvm.ui.auth.AuthViewModelFactory
 import com.example.firebaseauthmvvm.ui.home.HomeViewModelFactory
+import com.example.firebaseauthmvvm.ui.post.PostViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -19,9 +21,13 @@ class FirebaseApplication : Application(), KodeinAware {
         import(androidXModule(this@FirebaseApplication))
 
         bind() from singleton { FirebaseSource() }
+
         bind() from singleton { UserRepository(instance()) }
+        bind() from singleton { PostRepository(instance()) }
+
         bind() from provider { AuthViewModelFactory(instance()) }
         bind() from provider { HomeViewModelFactory(instance()) }
-
+        bind() from provider { PostViewModelFactory(instance()) }
     }
+
 }

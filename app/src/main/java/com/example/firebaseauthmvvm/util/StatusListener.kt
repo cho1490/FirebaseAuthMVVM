@@ -1,6 +1,6 @@
-package com.example.firebaseauthmvvm.ui.auth
+package com.example.firebaseauthmvvm.util
 
-interface AuthListener {
+interface StatusListener {
 
     fun onStarted()
 

@@ -8,13 +8,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebaseauthmvvm.R
 import com.example.firebaseauthmvvm.databinding.ActivityLoginBinding
+import com.example.firebaseauthmvvm.util.StatusListener
 import com.example.firebaseauthmvvm.util.startHomeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
+class LoginActivity : AppCompatActivity(), StatusListener, KodeinAware {
 
     override val kodein by kodein()
     private val factory : AuthViewModelFactory by instance()

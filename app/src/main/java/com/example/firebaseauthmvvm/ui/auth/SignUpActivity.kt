@@ -10,13 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.firebaseauthmvvm.R
 import com.example.firebaseauthmvvm.databinding.ActivitySignUpBinding
 import com.example.firebaseauthmvvm.ui.home.HomeActivity
+import com.example.firebaseauthmvvm.util.StatusListener
 import com.example.firebaseauthmvvm.util.startHomeActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class SignUpActivity : AppCompatActivity(), AuthListener, KodeinAware {
+class SignUpActivity : AppCompatActivity(),
+    StatusListener, KodeinAware {
 
     override val kodein by kodein()
     private val factory : AuthViewModelFactory by instance()
@@ -32,7 +34,6 @@ class SignUpActivity : AppCompatActivity(), AuthListener, KodeinAware {
         binding.viewmodel = viewModel
 
         viewModel.authListener = this
-
     }
 
     override fun onStarted() {
